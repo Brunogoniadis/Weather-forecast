@@ -7,7 +7,7 @@ const fetchApi = async (lat, long) => {
         lat: lat,
         lon: long,
         appid: '1922ec027bc8ed5184d84213b69a2646',
-        lang: 'pt',
+        lang: 'eng',
         units: 'metric',
       },
     });

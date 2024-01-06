@@ -19,6 +19,7 @@ export const MainScreen = styled.div`
     background-image: url(${backgroundMainDiv});
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
 
     .main-content{
         width: 100%;
@@ -44,6 +45,7 @@ export const MainScreen = styled.div`
         justify-content: space-around;
         width: 982px;
         height: 390px;
+        transition: width 2s;    
     }
 `
 

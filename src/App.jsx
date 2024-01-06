@@ -16,10 +16,10 @@ function App() {
           Weather forecast
         </h1>
         <div className="regions-wrapper">
-          <RegionComponent lat={-22.8808} long={-43.1043} />
-          <RegionComponent lat={-22.9221382} long={-43.3406402}/>
-          <RegionComponent lat={-9.5416924} long={-35.8512309}/>
-          <RegionComponent lat={-12.6684295} long={-61.5274824}/>
+          <RegionComponent lat={-22.8808} long={-43.1043} id={1} />
+          <RegionComponent lat={-23.5489} long={-46.6388} id={2}/>
+          <RegionComponent lat={-9.66625} long={-35.7351} id={3}/>
+          <RegionComponent lat={-11.409874} long={-41.280857} id={4}/>
         </div>
       </div>
     </MainScreen>

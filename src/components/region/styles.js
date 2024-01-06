@@ -30,6 +30,10 @@ const MainAnimation = keyframes`
   }
 `;
 
+export const IsLoadRegion = styled.div`
+  width: 214px;
+  height: 390px;
+`
 
 export const Region = styled.div`
   width: 214px;
@@ -76,7 +80,7 @@ export const Region = styled.div`
     .icon-type {
       width: 110px;
       height: 110px;
-      animation: ${rotateAnimation} 2s normal;
+      animation: ${rotateAnimation} 12s ease-in-out;
       
     }
 
@@ -97,10 +101,18 @@ export const Region = styled.div`
         .text-container-1{
             font-size: 16px;
             font-weight: bold;
+            
         }
         .text-container-2{
             font-size: 32px;
             font-weight: bold;
+            overflow: hidden
+
+
+        }
+        .text-container-2::after {
+          content: '°'; 
+          
         }
       }
     }
@@ -111,7 +123,7 @@ export const Region = styled.div`
     width: 100%;
     border-radius: 0px 0px 8px 8px;
     border-top: 2px solid white;
-    font-size: 36px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
