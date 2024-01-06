@@ -94,11 +94,11 @@ export const Region = styled.div`
         width: 90px;
         height: 55px;
 
-        .text-conteiner-1{
+        .text-container-1{
             font-size: 16px;
             font-weight: bold;
         }
-        .text-conteiner-2{
+        .text-container-2{
             font-size: 32px;
             font-weight: bold;
         }
