@@ -17,6 +17,7 @@ export const MainScreen = styled.div`
     width: 100vw;
     height: 100vh;
     background-image: url(${backgroundMainDiv});
+    position: relative;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
