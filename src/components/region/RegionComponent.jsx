@@ -7,6 +7,8 @@ function RegionComponent(props) {
     const [isFetching, setIsFetching] = useState(true);
     const [shouldRender, setShouldRender] = useState(false);
 
+
+    console.log("teste",props.id)
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -19,14 +21,15 @@ function RegionComponent(props) {
                 setTimeout(() => {
                     setShouldRender(true);
                 }, (props.id * 250));
+
             } catch (error) {
-                console.error('Erro ao obter dados:', error);
+                
                 setIsFetching(false);
             }
         };
 
         fetchData();
-    }, [props.lat, props.long]);
+    }, []);
 
     console.log(props);
 

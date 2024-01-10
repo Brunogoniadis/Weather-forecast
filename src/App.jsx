@@ -1,35 +1,48 @@
-import React, { useState, useEffect } from 'react'
-import { MainScreen } from './styles'
-import FormCitys from '../src/components/FormCitys/FormCitys'
-import RegionComponent from './components/region/RegionComponent'
-import fetchApi from './services/fetchApi';
+import React, { useState } from 'react';
+import { MainScreen } from './styles';
+import SideForm from './components/sideForm/sideForm';
+import RegionComponent from './components/region/RegionComponent';
+import PrevIcon from './assets/prevIcon.png';
+
 
 function App() {
+  const [formData, setFormData] = useState({
+    city1: { lat: '', long: '' },
+    city2: { lat: '', long: '' },
+    city3: { lat: '', long: '' },
+    city4: { lat: '', long: '' },
+  });
+
+  const [forceUpdate, setForceUpdate] = useState(false);
+
+  const handleFormSubmit = (newFormData) => {
+    setFormData(newFormData);
+    console.log('Dados do formulário recebidos:', newFormData);
+
+    // Altera o estado para forçar a re-renderização
+    setForceUpdate((prev) => !prev);
+  };
 
   return (
-
-
-
     <MainScreen>
       <div className="main-content">
-        <h1>
-          Weather forecast
-        </h1>
+        <div className='title-container'>
+          <button
+            className='icon' onClick={() => setForceUpdate((prev) => !prev)}>
+
+          </button>
+          <h1>Weather forecast</h1>
+        </div>
         <div className="regions-wrapper">
-          <RegionComponent lat={-22.8808} long={-43.1043} id={1} />
-          <RegionComponent lat={-23.5489} long={-46.6388} id={2} />
-          <RegionComponent lat={-9.66625} long={-35.7351} id={3} />
-          <RegionComponent lat={-11.409874} long={-41.280857} id={4} />
+          <RegionComponent key={`region-1-${formData.city1.lat}-${formData.city1.long}-${forceUpdate}`} lat={formData.city1.lat} long={formData.city1.long} id={1} />
+          <RegionComponent key={`region-2-${formData.city2.lat}-${formData.city2.long}-${forceUpdate}`} lat={formData.city2.lat} long={formData.city2.long} id={2} />
+          <RegionComponent key={`region-3-${formData.city3.lat}-${formData.city3.long}-${forceUpdate}`} lat={formData.city3.lat} long={formData.city3.long} id={3} />
+          <RegionComponent key={`region-4-${formData.city4.lat}-${formData.city4.long}-${forceUpdate}`} lat={formData.city4.lat} long={formData.city4.long} id={4} />
         </div>
       </div>
-      <FormCitys>
-
-
-      </FormCitys>
+      <SideForm onSubmitForm={handleFormSubmit} />
     </MainScreen>
-  )
+  );
 }
 
-export default App
-
-
+export default App;

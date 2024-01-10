@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import backgroundMainDiv from './assets/backgroundMainDiv.png'
 
+import PrevIcon from './assets/PrevIcon.png'
 
 export const MainScreen = styled.div`
 
@@ -33,13 +34,42 @@ export const MainScreen = styled.div`
         gap: 65px;
 
     }
-    h1{
+    .title-container{
         width: 982px;
-        font-weight: 700;
-        color: black;
-        font-size: 40px;
-        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 15px;
+
+        h1{
+            font-weight: 700;
+            color: black;
+            font-size: 40px;
+            color: white;
+        }   
+        .icon{
+            width: 50px;
+            height: 50px;
+            background-image: url(${PrevIcon});
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            border: none;
+            transition: 500ms all ease;
+
+            &:hover{
+
+                background-color: grey;
+            }
+
+            &:active{
+                transform: scale(0.75);
+            }
+        }
     }
+
     .regions-wrapper{
         display: grid;
         grid-template-columns: auto auto auto auto;

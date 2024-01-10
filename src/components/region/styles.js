@@ -106,7 +106,6 @@ export const Region = styled.div`
         .text-container-2{
             font-size: 32px;
             font-weight: bold;
-            overflow: hidden
 
 
         }
