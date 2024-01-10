@@ -11,7 +11,7 @@ const fetchApi = async (lat, long) => {
         units: 'metric',
       },
     });
-
+    console.log("return", response)
     return { data: response.data, isFetching: false };
   } catch (error) {
     console.error('Erro ao obter dados:', error);

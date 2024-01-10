@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Region, IsLoadRegion} from './styles';
+import { Region, IsLoadRegion } from './styles';
 import fetchApi from '../../services/fetchApi';
 
 function RegionComponent(props) {
     const [weatherData, setWeatherData] = useState(null);
     const [isFetching, setIsFetching] = useState(true);
     const [shouldRender, setShouldRender] = useState(false);
+    const [iconType, setIconType] = useState('')
 
 
-    console.log("teste",props.id)
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const result = await fetchApi(props.lat, props.long);
                 setWeatherData(result.data);
+                setIconType(result.data.weather[0].icon)
                 setIsFetching(false);
 
 
@@ -23,7 +24,7 @@ function RegionComponent(props) {
                 }, (props.id * 250));
 
             } catch (error) {
-                
+
                 setIsFetching(false);
             }
         };
@@ -31,12 +32,14 @@ function RegionComponent(props) {
         fetchData();
     }, []);
 
-    console.log(props);
+    console.log("iconType", iconType)
 
     const formatTemp = (temp) => {
         const tempString = temp?.toString();
         return tempString?.length > 2 ? tempString.slice(0, 2) : tempString;
     };
+
+
 
     return (
         <>
@@ -46,7 +49,7 @@ function RegionComponent(props) {
                     <div className='center-container'>
                         <img
                             className='icon-type'
-                            src='https://c.animaapp.com/HLTE2lsN/img/storm-2@2x.png'
+                            src={`https://openweathermap.org/img/wn/${iconType}@2x.png`}
                             alt='Weather Icon'
                         />
                         <div className='temps-wrapper'>
@@ -63,8 +66,8 @@ function RegionComponent(props) {
                     <div className='spec-container'>{weatherData?.main.humidity} hum</div>
                 </Region>
             ) : (
-                
-                <IsLoadRegion/>
+
+                <IsLoadRegion />
             )}
         </>
     );

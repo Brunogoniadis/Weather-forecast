@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MainContainer } from './style';
 
-// ... (imports e estilos)
-
 function SideForm({ onSubmitForm }) {
-    const [formData, setFormData] = useState({
-        city1: { lat: '', long: '' },
-        city2: { lat: '', long: '' },
-        city3: { lat: '', long: '' },
-        city4: { lat: '', long: '' }
+    const [formData, setFormData] = useState(() => {
+        // Tentar obter dados armazenados localmente ou inicializar com valores padrão
+        const storedData = JSON.parse(localStorage.getItem('formData')) || {
+            city1: { lat: '', long: '' },
+            city2: { lat: '', long: '' },
+            city3: { lat: '', long: '' },
+            city4: { lat: '', long: '' }
+        };
+        
+        return storedData;
     });
 
     const handleInputChange = (city, field, value) => {
@@ -21,6 +24,13 @@ function SideForm({ onSubmitForm }) {
         }));
     };
 
+    useEffect(() => {
+
+        localStorage.setItem('formData', JSON.stringify(formData));
+
+
+    }, [formData]);
+
     const areAllFieldsFilled = () => {
         for (const city in formData) {
             if (formData[city].lat === '' || formData[city].long === '') {
@@ -32,13 +42,14 @@ function SideForm({ onSubmitForm }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
+    
         if (areAllFieldsFilled()) {
-            onSubmitForm(formData); // Chamando a função de retorno de chamada com os dados do formulário
+            onSubmitForm(formData);
         } else {
-            alert('Preencha todos os campos antes de enviar.');
+            alert('Fill in all fields before sending.');
         }
     };
+
 
     return (
         <MainContainer>
@@ -106,4 +117,3 @@ function SideForm({ onSubmitForm }) {
 }
 
 export default SideForm;
-

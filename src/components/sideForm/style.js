@@ -55,7 +55,7 @@ export const MainContainer = styled.div`
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #80a7bb;
+    background-color: #A4A4A4;
     position: absolute;
     right: -25px; 
     top: 50%;

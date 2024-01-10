@@ -17,9 +17,8 @@ function App() {
 
   const handleFormSubmit = (newFormData) => {
     setFormData(newFormData);
-    console.log('Dados do formulário recebidos:', newFormData);
+    
 
-    // Altera o estado para forçar a re-renderização
     setForceUpdate((prev) => !prev);
   };
 
@@ -28,6 +27,7 @@ function App() {
       <div className="main-content">
         <div className='title-container'>
           <button
+
             className='icon' onClick={() => setForceUpdate((prev) => !prev)}>
 
           </button>
