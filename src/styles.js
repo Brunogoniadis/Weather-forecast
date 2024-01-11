@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import backgroundMainDiv from './assets/backgroundMainDiv.png'
 
-import PrevIcon from './assets/PrevIcon.png'
+import {PrevIcon} from './assets/PrevIcon.png'
 
 export const MainScreen = styled.div`
 

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { MainScreen } from './styles';
 import SideForm from './components/sideForm/sideForm';
 import RegionComponent from './components/region/RegionComponent';
-import PrevIcon from './assets/prevIcon.png';
-
 
 function App() {
   const [formData, setFormData] = useState({
