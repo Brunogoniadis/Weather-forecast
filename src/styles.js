@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import backgroundMainDiv from './assets/backgroundMainDiv.png'
 
-import {PrevIcon} from './assets/PrevIcon.png'
+
 
 export const MainScreen = styled.div`
 
@@ -51,10 +51,6 @@ export const MainScreen = styled.div`
         .icon{
             width: 50px;
             height: 50px;
-            background-image: url(${PrevIcon});
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
             border-radius: 50%;
             border: none;
             transition: 500ms all ease;
