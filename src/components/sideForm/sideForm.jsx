@@ -3,14 +3,14 @@ import { MainContainer } from './style';
 
 function SideForm({ onSubmitForm }) {
     const [formData, setFormData] = useState(() => {
-        // Tentar obter dados armazenados localmente ou inicializar com valores padrão
+
         const storedData = JSON.parse(localStorage.getItem('formData')) || {
             city1: { lat: '', long: '' },
             city2: { lat: '', long: '' },
             city3: { lat: '', long: '' },
             city4: { lat: '', long: '' }
         };
-        
+
         return storedData;
     });
 
@@ -42,7 +42,7 @@ function SideForm({ onSubmitForm }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    
+
         if (areAllFieldsFilled()) {
             onSubmitForm(formData);
         } else {
@@ -52,8 +52,20 @@ function SideForm({ onSubmitForm }) {
 
 
     return (
-        <MainContainer>
-            <form className="form-citys" onSubmit={handleSubmit}>
+        <MainContainer
+
+            style={{
+                backgroundColor: '#80a7bb',
+                transform: 'translate(0vw)'
+            }}
+        >
+            <form className="form-citys" onSubmit={handleSubmit}
+
+                style={{
+                    opacity: '1',
+                    transform: 'translate(0vw)'
+                }}
+            >
                 <div className='row-city'>
                     <p>City1</p>
                     <input
